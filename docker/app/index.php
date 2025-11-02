@@ -48,7 +48,7 @@ $infoTrabajos = [
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- CSS personalizado (solo por ID) -->
+    <!-- CSS-->
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -77,7 +77,7 @@ $infoTrabajos = [
       </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- principal -->
     <header id="hero" class="py-5 py-lg-6">
       <div class="container">
         <div class="row align-items-center g-4">
@@ -145,7 +145,7 @@ $infoTrabajos = [
       </div>
     </section>
 
-    <!-- Cómo funciona -->
+    <!-- Como funciona -->
     <section id="como-funciona" class="py-5">
       <div class="container">
         <div class="row g-4 align-items-center">
@@ -191,7 +191,7 @@ $infoTrabajos = [
       </div>
     </section>
 
-    <!-- Cintillo de logos -->
+    <!-- Empresas que confian en Bolsa Juvenil -->
     <section id="logoStrip" class="py-4 border-top border-bottom bg-white">
       <div class="container">
         <h2 class="h3 mb-5">Empresas que confían en Bolsa Juvenil</h2>
@@ -204,7 +204,7 @@ $infoTrabajos = [
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- Seccion Crear perfil -->
     <section class="py-5 bg-primary text-white">
       <div class="container">
         <div class="row align-items-center g-3">
