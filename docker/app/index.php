@@ -58,7 +58,7 @@ $infoTrabajos = [
       <div class="container py-2">
         <a class="navbar-brand fw-bold text-primary" href="#">
           <i class="bi bi-briefcase-fill me-2"></i>Bolsa <span class="text-dark">Juvenil</span>
-        </a>
+        </a>      
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Alternar navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,8 +70,8 @@ $infoTrabajos = [
             <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
           </ul>
           <div class="d-flex ms-lg-3 gap-2">
-            <a href="#" class="btn btn-outline-primary">Iniciar sesión</a>
-            <a href="#" class="btn btn-primary">Crear cuenta</a>
+            <a href="iniciarSesion.php" class="btn btn-outline-primary">Iniciar sesión</a>
+            <a href="registrarse.php" class="btn btn-primary">Crear cuenta</a>
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@ $infoTrabajos = [
             </ul>
           </div>
         </div>
-        <div class="border-top pt-3 mt-3 small text-muted">© <?php echo date('Y'); ?> Bolsa Juvenil</div>
+        <div class="border-top pt-3 mt-3 small text-muted">© Bolsa Juvenil</div>
       </div>
     </footer>
 
