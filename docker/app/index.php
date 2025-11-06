@@ -49,7 +49,7 @@ $infoTrabajos = [
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- CSS-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/postulante.css">
   </head>
   <body>
 
@@ -66,6 +66,7 @@ $infoTrabajos = [
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="#ofertas">Ofertas</a></li>
             <li class="nav-item"><a class="nav-link" href="#categorias">Categorías</a></li>
+             <li class="nav-item"><a class="nav-link" href="postularce.php">Postularme</a></li>
             <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
             <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
           </ul>
@@ -134,7 +135,7 @@ $infoTrabajos = [
                       <strong class="text-primary"><?= number_format($trabajo['salary'], 0, ',', '.') ?></strong>
                     </div>
                     <div class="d-grid mt-3">
-                      <a href="#" class="btn btn-primary"><i class="bi bi-send me-2"></i>Postular</a>
+                      <a href="postularce.php" class="btn btn-primary"><i class="bi bi-send me-2"></i>Postular</a>
                     </div>
                   </div>
                 </div>

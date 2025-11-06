@@ -13,7 +13,7 @@
 
 <body>
 
-
+    <header>
     <!-- Navbar (igual que index) -->
     <nav id="mainNav" class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
         <div class="container py-2">
