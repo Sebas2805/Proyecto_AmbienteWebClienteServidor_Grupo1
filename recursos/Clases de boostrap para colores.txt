@@ -1,0 +1,10 @@
+Clase bootstrap
+.text-primary / .bg-primary
+.text-primary-subtle / .bg-primary-subtle
+.text-primary-emphasis
+.border-primary-subtle
+.bg-primary-subtle (hover intenso)
+.bg-primary (base)
+.bg-primary-dark
+.text-light / .bg-light
+.text-secondary

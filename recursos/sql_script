@@ -1,0 +1,61 @@
+use appdb;
+
+-- Tabla: USUARIOS
+CREATE TABLE usuarios (
+  id              INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre          VARCHAR(120) NOT NULL,
+  email           VARCHAR(191) NOT NULL,
+  password        VARCHAR(255) NOT NULL,
+  telefono        VARCHAR(30)  NULL,
+  tipo_usuario    ENUM('EMPLEADO','EMPLEADOR','ADMIN') NOT NULL DEFAULT 'EMPLEADO',
+  cv_url          VARCHAR(255) NULL,
+  UNIQUE KEY uk_usuarios_email (email)
+) ENGINE=InnoDB;
+
+-- Tabla: EMPRESAS
+CREATE TABLE empresas (
+  id           INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre       VARCHAR(191) NOT NULL,
+  descripcion  TEXT NULL,
+  UNIQUE KEY uk_empresas_nombre (nombre)
+) ENGINE=InnoDB;
+
+-- Tabla: OFERTAS_EMPLEO
+CREATE TABLE ofertas_empleo (
+  id             INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  empresa_id     INT UNSIGNED NOT NULL,
+  titulo         VARCHAR(180) NOT NULL,
+  descripcion    MEDIUMTEXT NOT NULL,
+  tipo_jornada   ENUM('TIEMPO_COMPLETO','MEDIO_TIEMPO','PASANTIA') NOT NULL,
+  modalidad      ENUM('PRESENCIAL','HIBRIDO','REMOTO') NOT NULL,
+  salario        DECIMAL(12,2) NULL,
+  direccion      VARCHAR(255) NULL,
+  estado         ENUM('ABIERTA','CERRADA','EN_PROCESO') NOT NULL DEFAULT 'ABIERTA',
+  CONSTRAINT fk_ofertas_empresa
+    FOREIGN KEY (empresa_id) REFERENCES empresas(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY idx_ofertas_empresa (empresa_id),
+  KEY idx_ofertas_estado (estado)
+) ENGINE=InnoDB;
+
+-- Tabla: ETIQUETAS
+CREATE TABLE etiquetas (
+  id      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre  VARCHAR(120) NOT NULL,
+  UNIQUE KEY uk_etiquetas_nombre (nombre)
+) ENGINE=InnoDB;
+
+-- Tabla puente: OFERTAS_ETIQUETAS (N..M)
+CREATE TABLE ofertas_etiquetas (
+  oferta_id    INT UNSIGNED NOT NULL,
+  etiqueta_id  INT UNSIGNED NOT NULL,
+  PRIMARY KEY (oferta_id, etiqueta_id),
+  CONSTRAINT fk_oe_oferta
+    FOREIGN KEY (oferta_id) REFERENCES ofertas_empleo(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_oe_etiqueta
+    FOREIGN KEY (etiqueta_id) REFERENCES etiquetas(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+commit;
