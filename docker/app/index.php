@@ -64,11 +64,34 @@ switch ($route) {
   case 'logout':
     session_unset();
     session_destroy();
-    header('Location: index.php?route=home');
+    header(header: 'Location: index.php?route=home');
     exit;
 
-  default:
-    http_response_code(404);
+  case 'postularce':
+    require './models/Postulacion.php';
+    require './controllers/PostulacionController.php';
+    $model = new Postulacion($conn);
+    $controller = new PostulacionController($model);
+
+    $oferta_id = $_GET['id'] ?? 0;   // ← AQUI TOMAS EL ID REAL
+    $controller->formulario($oferta_id);
+    break;
+
+  case 'guardar_postulacion':
+    require './models/Postulacion.php';
+    require './controllers/PostulacionController.php';
+    $model = new Postulacion($conn);
+    $controller = new PostulacionController($model);
+    $controller->guardar();
+    break;
+
+  case 'postulacion_exitosa':
+    $page = "postulacionExito";
+    include "./views/layout.php";
+    break;
+    default:
+    http_response_code(response_code: 404);
     echo "404 - Página no encontrada";
     break;
+
 }

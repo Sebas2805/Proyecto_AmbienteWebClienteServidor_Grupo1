@@ -38,6 +38,42 @@ CREATE TABLE ofertas_empleo (
   KEY idx_ofertas_estado (estado)
 ) ENGINE=InnoDB;
 
+CREATE TABLE Postulaciones(
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL,
+  apellido1 VARCHAR(50) NOT NULL,
+  apellido2 VARCHAR(50) NOT NULL,
+  edad DATE NOT NULL,
+  correo VARCHAR(50) NOT NULL,
+  cedula VARCHAR(50) NOT NULL,
+  cv VARCHAR(50) NULL,
+  comentario TEXT NOT NULL,
+  oferta_id INT UNSIGNED NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_postulacion_oferta
+    FOREIGN KEY (oferta_id) REFERENCES ofertas_empleo(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- Postulaciones: ETIQUETAS
+CREATE TABLE Postulaciones(
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL,
+  apellido1 VARCHAR(50) NOT NULL,
+  apellido2 VARCHAR(50) NOT NULL,
+  edad DATE NOT NULL,
+  correo VARCHAR(50) NOT NULL,
+  cedula VARCHAR(50) NOT NULL,
+  cv VARCHAR(50) NULL,
+  comentario TEXT NOT NULL,
+  oferta_id INT UNSIGNED NOT NULL,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_postulacion_oferta
+    FOREIGN KEY (oferta_id) REFERENCES ofertas_empleo(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
 -- Tabla: ETIQUETAS
 CREATE TABLE etiquetas (
   id      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

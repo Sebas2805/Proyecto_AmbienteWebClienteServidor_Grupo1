@@ -65,7 +65,7 @@ class AuthController
         // Validaciones básicas
         if ($nombre === '' || $apellidos === '' || $email === '' || $password === '' || $confirm === '') {
             $_SESSION['register_error'] = 'Todos los campos obligatorios deben estar completos.';
-            header('Location: index.php?route=register');
+            header(header: 'Location: index.php?route=register');
             exit;
         }
 

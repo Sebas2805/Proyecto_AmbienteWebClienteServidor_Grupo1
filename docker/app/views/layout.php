@@ -31,6 +31,7 @@
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.php?route=home#ofertas">Ofertas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php?route=postularce">Postularme</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?route=home#categorias">Categorías</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.php?route=home#como-funciona">Cómo funciona</a>
                     </li>

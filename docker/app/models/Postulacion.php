@@ -1,5 +1,4 @@
 <?php
-// models/Postulacion.php
 
 class Postulacion
 {
@@ -10,24 +9,24 @@ class Postulacion
         $this->conn = $conn;
     }
 
-    public function obtenerPorUsuario(int $usuarioId): array
+    public function crear(array $data): bool
     {
-        $sql = "SELECT 
-                  p.id,
-                  p.estado,
-                  p.fecha_postulacion,
-                  p.carta_presentacion,
-                  o.titulo AS titulo_oferta,
-                  e.nombre AS empresa_nombre
-                FROM postulaciones p
-                INNER JOIN ofertas_empleo o ON p.oferta_id = o.id
-                INNER JOIN empresas e ON o.empresa_id = e.id
-                WHERE p.usuario_id = :usuario_id
-                ORDER BY p.fecha_postulacion DESC";
+        $sql = "INSERT INTO Postulaciones
+        (nombre, apellido1, apellido2, edad, correo, cedula, cv, comentario, oferta_id)
+        VALUES (:nombre, :apellido1, :apellido2, :edad, :correo, :cedula, :cv, :comentario, :oferta_id)";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':usuario_id', $usuarioId, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+
+        return $stmt->execute([
+            ":nombre"     => $data["nombre"],
+            ":apellido1"  => $data["apellido1"],
+            ":apellido2"  => $data["apellido2"],
+            ":edad"       => $data["edad"],
+            ":correo"     => $data["correo"],
+            ":cedula"     => $data["cedula"],
+            ":cv"         => $data["cv"],
+            ":comentario" => $data["comentario"],
+            ":oferta_id"  => $data["oferta_id"]
+        ]);
     }
 }
